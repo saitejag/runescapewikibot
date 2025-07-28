@@ -29,8 +29,11 @@ class RswikiBot:
         self.llmcache = SemanticCache(
             name="llmcache",
             redis_url="redis://localhost:6379",
-            distance_threshold=0.1
+            distance_threshold=0.02
         )
+        graph_builder = StateGraph(State).add_sequence([self.retrieve, self.generate])
+        graph_builder.add_edge(START, "retrieve")
+        self.graph = graph_builder.compile()
 
     async def retrieve(self,state: State):
         retrieved_docs = await self.chroma_db.asimilarity_search(state["question"])
@@ -44,7 +47,7 @@ class RswikiBot:
         return {"answer": response.content}
     
     async def ask_llm(self,query):
-        result = self.llmcache.check(
+        result = await self.llmcache.acheck(
             prompt = query,
             num_results = 1,
             return_fields = ['prompt', 'response']
@@ -56,11 +59,8 @@ class RswikiBot:
             return {key_dict[k]: result[0][k] for k in ('prompt', 'response') if k in result[0]}
 
         else:
-            graph_builder = StateGraph(State).add_sequence([self.retrieve, self.generate])
-            graph_builder.add_edge(START, "retrieve")
-            graph = graph_builder.compile()
-            ans = await graph.ainvoke({"question": query})
-            self.llmcache.store(
+            ans = await self.graph.ainvoke({"question": query})
+            await self.llmcache.astore(
                 prompt = query,
                 response = ans["answer"]
             )
