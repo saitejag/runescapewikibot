@@ -43,15 +43,16 @@ class RswikiBot:
         return {"answer": response.content}
     
     def ask_llm(self,query):
-        results = self.llmcache.check(
+        result = self.llmcache.check(
             prompt = query,
-            num_results = 5,
+            num_results = 1,
             return_fields = ['prompt', 'response']
         )
 
-        if results:
+        if result:
             print('Cache Hit!')
-            return [{k: item[k] for k in ('prompt', 'response') if k in item} for item in results]
+            key_dict = {'prompt':'question','response':'answer'}
+            return {key_dict[k]: result[0][k] for k in ('prompt', 'response') if k in result[0]}
 
         else:
             graph_builder = StateGraph(State).add_sequence([self.retrieve, self.generate])
