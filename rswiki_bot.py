@@ -6,6 +6,7 @@ from langchain.chat_models import init_chat_model
 from dotenv import load_dotenv
 from langgraph.graph import START, StateGraph
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
+from redisvl.extensions.llmcache import SemanticCache
 
 load_dotenv()
 
@@ -24,6 +25,11 @@ class RswikiBot:
             collection_name="runescape",  # name of the collection
         )
         self.llm = init_chat_model("gemini-2.0-flash", model_provider="google_genai")
+        self.llmcache = SemanticCache(
+            name="llmcache",
+            redis_url="redis://localhost:6379",
+            distance_threshold=0.1
+        )
 
     def retrieve(self,state: State):
         retrieved_docs = self.chroma_db.similarity_search(state["question"])
@@ -37,16 +43,35 @@ class RswikiBot:
         return {"answer": response.content}
     
     def ask_llm(self,query):
-        graph_builder = StateGraph(State).add_sequence([self.retrieve, self.generate])
-        graph_builder.add_edge(START, "retrieve")
-        graph = graph_builder.compile()
-        return graph.invoke({"question": query})
+        results = self.llmcache.check(
+            prompt = query,
+            num_results = 5,
+            return_fields = ['prompt', 'response']
+        )
+
+        if results:
+            print('Cache Hit!')
+            return [{k: item[k] for k in ('prompt', 'response') if k in item} for item in results]
+
+        else:
+            graph_builder = StateGraph(State).add_sequence([self.retrieve, self.generate])
+            graph_builder.add_edge(START, "retrieve")
+            graph = graph_builder.compile()
+            ans = graph.invoke({"question": query})
+            self.llmcache.store(
+                prompt = query,
+                response = ans["answer"]
+            )
+            print('Cache Set!')            
+            return ans
 
 def main():
     rswb = RswikiBot()
-    result = rswb.ask_llm("List all the quests the Age of Chaos")
-    print(f'Context: {result["context"]}\n\n')
-    print(f'Answer: {result["answer"]}')
+    result = rswb.ask_llm("What all quests are there in Age of Chaos")
+    # result = rswb.ask_llm("List all the quests the Age of Chaos")
+    # print(f'Context: {result["context"]}\n\n')
+    # print(f'Answer: {result["answer"]}')
+    print(result)
 
 if __name__ == "__main__":
     main()
