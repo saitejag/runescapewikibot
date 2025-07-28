@@ -7,6 +7,7 @@ from dotenv import load_dotenv
 from langgraph.graph import START, StateGraph
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
 from redisvl.extensions.llmcache import SemanticCache
+import asyncio
 
 load_dotenv()
 
@@ -66,13 +67,13 @@ class RswikiBot:
             print('Cache Set!')            
             return ans
 
-def main():
+async def main():
     rswb = RswikiBot()
-    result = rswb.ask_llm("What all quests are there in Age of Chaos")
+    result = await rswb.ask_llm("What all quests are there in Age of Chaos")
     # result = rswb.ask_llm("List all the quests the Age of Chaos")
     # print(f'Context: {result["context"]}\n\n')
     # print(f'Answer: {result["answer"]}')
     print(result)
 
 if __name__ == "__main__":
-    main()
+    asyncio.run(main())
