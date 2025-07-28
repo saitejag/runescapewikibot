@@ -1,0 +1,6 @@
+POST http://localhost:8000/api/query
+Content-Type: application/json
+
+{
+    "query": "Describe Dragon slayer"
+}

@@ -1,0 +1,350 @@
+page_content='
+
+
+
+Rare glass shard - The RuneScape Wiki
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Rare glass shard
+
+From the RuneScape Wiki, the wiki for all things RuneScape
+
+
+
+Jump to navigation
+Jump to search
+
+
+
+Rare glass shard is a Treasure Hunter reward.If the associated promotion is not currently active, it may not be obtainable.
+This item has not yet been re-released. Currently available for .
+
+Rare glass shard? (edit)Release16 March 2023 (Update)MembersNoQuest itemNoPropertiesTradeableNoEquipableN/AStackableN/ADisassemblyN/ADestroyN/AExamineA shard of glass that fits a red window.Options [?]BackpackN/AValuesValue? (edit)High alch? (edit)Low alch? (edit)On death? (edit)Weight? (edit)Advanced dataItem ID54523LinksMRID • recipe[view] • [talk]Item JSON: {"edible":"no","release_date":"16 March 2023","examine":"A shard of glass that fits a red window.","tradeable":"no","release_update_post":"Wilderness Ninja Strike! - This Week In RuneScape","restriction":"microtransaction","disassembly":"n/a","destroy":"N/A","lendable":"no","gemw":false,"highalch":false,"id":"54523","members":"no","equipable":"n/a","bankable":"yes","stacksinbank":"yes","name":"Rare glass shard","gimstorage":"no","stackable":"n/a","noteable":"no"}Is members only: false
+A rare glass shard is a reward from Hall of Heralds, a Treasure Hunter promotion.
+They can be received alongside any prize received from the chest during the promotion, and are automatically added to the red window. As such, players never receive this item in their backpacks.
+
+Gallery[edit | edit source]
+
+
+
+1/3 rare glass shards restored
+
+
+
+2/3 rare glass shards restored
+
+
+
+3/3 rare glass shards restored
+
+
+Release history[edit | edit source]
+
+
+Start date
+End date
+Content
+
+
+16 March 2023 (Update)
+
+22 March 2023
+
+Hall of Heralds
+
+Update history[edit | edit source]
+This information has been compiled as part of the update history project. Some updates may not be included – see here for how to help out!
+
+update 16 March 2023 (Update):
+Made available.
+update 13 March 2023 (Update):
+Added to game cache.
+
+v • d • eRS3 Hall of HeraldsItems
+Herald's Hat token
+Herald's Jacket and Gloves token
+Herald's Trousers and Boots token
+Herald's Wand and Orb token
+Herald's Outfit token (untradeable)
+ Fairly common glass shard
+ Uncommon glass shard
+ Rare glass shard
+ Super rare glass shardHerald's Outfit
+Hat
+Jacket
+Trousers
+Gloves
+Boots
+Wand
+Orb
+
+
+
+Retrieved from "https://runescape.wiki/w/Rare_glass_shard?oldid=36033895"
+Categories: Treasure Hunter rewardsItems that have never been re-releasedItemsItems with N/A disassemblyUntradeable itemsTreasure HunterHall of HeraldsHidden categories: Needs imageItems missing death infoNeeds weight addedItems missing valueFree-to-play itemsPages with update history
+
+
+
+Navigation menu
+
+
+
+Personal tools
+
+
+
+Not logged inTalkContributionsSign upLog in
+
+
+
+
+
+
+Namespaces
+
+
+
+ArticleDiscussion
+
+
+
+
+
+
+British English
+
+
+
+
+
+
+
+
+
+
+Views
+
+
+
+ReadEditEdit sourceHistory
+
+
+
+
+
+
+More
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Search
+
+
+
+
+
+
+
+
+
+
+
+
+Discord
+
+
+
+Discord
+
+
+
+
+
+Navigation
+
+
+
+About usUser helpRandom page
+
+
+
+
+
+Recent changes
+
+
+
+
+
+
+Slayer assignment/Vannaka
+
+54m ago -
+    MrDew
+
+
+
+Bill & Ben's Egg/Salon Joint Venture
+
+1h ago -
+    ExE Boss
+
+
+
+Artefacts
+
+4h ago -
+    Karathen
+
+
+
+Weeds
+
+5h ago -
+    [anonymous]
+
+
+
+Show more...
+
+
+
+Guides
+
+
+
+List of questsSkill trainingMoney makingTreasure TrailsNew player guide
+
+
+
+
+
+Databases
+
+
+
+PvM portalCalculatorsBestiaryAchievements
+
+
+
+
+
+Editing
+
+
+
+How to editPoliciesProjectsNew filesThe Wikian
+
+
+
+
+
+Community
+
+
+
+DiscussionsClan Chat
+
+
+
+
+
+More RuneScape
+
+
+
+OSRS WikiRSC WikiDragonwilds WikiWiki Trivia GamesRuneScape.com
+
+
+
+
+
+Tools
+
+
+
+What links hereRelated changesSpecial pagesPrintable versionPermanent linkPage informationBrowse properties
+
+
+
+
+
+
+
+ This page was last modified on 8 April 2023, at 03:53.
+Content on this site is licensed under CC BY-NC-SA 3.0; additional terms apply.
+RuneScape and RuneScape Old School are the trademarks of Jagex Limited and are used with the permission of Jagex.
+
+
+Privacy policy
+About the RuneScape Wiki
+Disclaimers
+Terms of Use
+Contact Weird Gloop
+Mobile view
+
+
+
+
+
+
+
+
+
+
+' metadata={'source': 'https://runescape.wiki/w/Rare_glass_shard', 'title': 'Rare glass shard - The RuneScape Wiki', 'description': 'A rare glass shard is a reward from Hall of Heralds, a Treasure Hunter promotion.', 'language': 'en-GB'}
