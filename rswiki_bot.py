@@ -42,7 +42,7 @@ class RswikiBot:
         response = self.llm.invoke(messages)
         return {"answer": response.content}
     
-    def ask_llm(self,query):
+    async def ask_llm(self,query):
         result = self.llmcache.check(
             prompt = query,
             num_results = 1,
@@ -58,7 +58,7 @@ class RswikiBot:
             graph_builder = StateGraph(State).add_sequence([self.retrieve, self.generate])
             graph_builder.add_edge(START, "retrieve")
             graph = graph_builder.compile()
-            ans = graph.invoke({"question": query})
+            ans = await graph.ainvoke({"question": query})
             self.llmcache.store(
                 prompt = query,
                 response = ans["answer"]

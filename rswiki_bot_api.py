@@ -12,7 +12,8 @@ app = FastAPI()
 bot = RswikiBot()
 @app.post('/api/query',response_model=str)
 async def post_query(q:querySchema):
-    return bot.ask_llm(q.query)["answer"]
+    result = await bot.ask_llm(q.query)
+    return result["answer"]
 
 @app.get("/")
 async def read_root():
