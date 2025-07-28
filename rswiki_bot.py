@@ -31,15 +31,15 @@ class RswikiBot:
             distance_threshold=0.1
         )
 
-    def retrieve(self,state: State):
-        retrieved_docs = self.chroma_db.similarity_search(state["question"])
+    async def retrieve(self,state: State):
+        retrieved_docs = await self.chroma_db.asimilarity_search(state["question"])
         return {"context": retrieved_docs}
 
 
-    def generate(self,state: State):
+    async def generate(self,state: State):
         docs_content = "\n\n".join(doc.page_content for doc in state["context"])
-        messages = self.rag_prompt.invoke({"question": state["question"], "context": docs_content})
-        response = self.llm.invoke(messages)
+        messages = await self.rag_prompt.ainvoke({"question": state["question"], "context": docs_content})
+        response = await self.llm.ainvoke(messages)
         return {"answer": response.content}
     
     async def ask_llm(self,query):
