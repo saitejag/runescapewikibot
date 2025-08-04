@@ -1,0 +1,28 @@
+services:
+  redis:
+    image: redis/redis-stack-server
+    container_name: redisss
+    ports:
+      - 6379:6379
+    volumes:
+      - redisssdata1:/Users/gst1502/testdata/redisssdata
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: rswiki
+    environment:
+      - GOOGLE_API_KEY=${GOOGLE_API_KEY}
+      - REDIS_URL=redis://redis:6379
+    command: fastapi run /opt/src/rswiki_bot_api.py
+    depends_on:
+      - redis
+    ports:
+      - 8000:8000  
+    volumes:
+      - ./src:/opt/src
+
+volumes:
+  redisssdata1:
+    driver: local      

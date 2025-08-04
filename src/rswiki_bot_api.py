@@ -1,6 +1,10 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
-from .rswiki_bot import RswikiBot
+# try:
+#     from .rswiki_bot import RswikiBot
+# except:
+#     from rswiki_bot import RswikiBot
+from rswiki_bot import RswikiBot
 from fastapi.staticfiles import StaticFiles
 import uvicorn
 import os
@@ -27,4 +31,4 @@ if os.path.exists("dist"):
 
 
 def run():
-    uvicorn.run("app.main:app", host="127.0.0.1", port=8000, reload=True)
+    uvicorn.run("rswiki_bot_api:app", host="127.0.0.1", port=8000, reload=True)

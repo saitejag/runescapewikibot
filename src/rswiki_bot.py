@@ -8,6 +8,7 @@ from langgraph.graph import START, StateGraph
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
 from redisvl.extensions.llmcache import SemanticCache
 import asyncio
+import os
 
 load_dotenv()
 
@@ -28,7 +29,7 @@ class RswikiBot:
         self.llm = init_chat_model("gemini-2.0-flash", model_provider="google_genai")
         self.llmcache = SemanticCache(
             name="llmcache",
-            redis_url="redis://localhost:6379",
+            redis_url=os.environ.get("REDIS_URL", "redis://localhost:6379"),
             distance_threshold=0.02
         )
         graph_builder = StateGraph(State).add_sequence([self.retrieve, self.generate])
